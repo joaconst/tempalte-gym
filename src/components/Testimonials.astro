@@ -1,0 +1,48 @@
+---
+const testimonials = [
+  {
+    name: "María García",
+    role: "Miembro desde 2022",
+    content: "Desde que me uní a POWERGYM, he perdido 15 kilos y me siento con más energía que nunca. Los entrenadores son increíbles y siempre están dispuestos a ayudar.",
+    image: "https://randomuser.me/api/portraits/women/32.jpg"
+  },
+  {
+    name: "Carlos Rodríguez",
+    role: "Miembro desde 2021",
+    content: "El ambiente en POWERGYM es inmejorable. He conocido a personas increíbles y los entrenadores realmente se preocupan por tu progreso. ¡Totalmente recomendado!",
+    image: "https://randomuser.me/api/portraits/men/45.jpg"
+  },
+  {
+    name: "Laura Martínez",
+    role: "Miembro desde 2023",
+    content: "Las clases grupales son mi parte favorita. Hay tanta variedad que nunca me aburro, y los instructores saben cómo motivarte para dar lo mejor de ti.",
+    image: "https://randomuser.me/api/portraits/women/68.jpg"
+  }
+];
+---
+
+<section class="py-20 bg-accent text-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Lo que dicen nuestros clientes</h2>
+      <p class="text-lg max-w-2xl mx-auto">
+        Descubre por qué nuestros miembros eligen POWERGYM para alcanzar sus objetivos fitness.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testimonials.map(testimonial => (
+        <div class="bg-secondary rounded-lg p-6 shadow-lg">
+          <div class="flex items-center mb-4">
+            <img src={testimonial.image} alt={testimonial.name} class="w-16 h-16 rounded-full mr-4" />
+            <div>
+              <h3 class="font-bold text-lg">{testimonial.name}</h3>
+              <p class="text-primary">{testimonial.role}</p>
+            </div>
+          </div>
+          <p class="italic">"{testimonial.content}"</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

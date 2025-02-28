@@ -1,0 +1,197 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CallToAction from '../components/CallToAction.astro';
+
+const services = [
+  {
+    title: "Entrenamiento Funcional",
+    description: "Nuestro entrenamiento funcional se enfoca en ejercicios que simulan movimientos cotidianos para mejorar tu fuerza, equilibrio y flexibilidad. Ideal para personas de todas las edades que buscan mejorar su condición física general.",
+    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    features: [
+      "Entrenamiento en circuito",
+      "Ejercicios con peso corporal",
+      "Mejora de la coordinación",
+      "Aumento de la resistencia"
+    ]
+  },
+  {
+    title: "Musculación",
+    description: "Nuestra sala de musculación cuenta con equipamiento de última generación para ayudarte a desarrollar tu fuerza y masa muscular. Nuestros entrenadores te guiarán para maximizar tus resultados y evitar lesiones.",
+    image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    features: [
+      "Máquinas de última generación",
+      "Zona de peso libre",
+      "Entrenamiento personalizado",
+      "Programas específicos por grupo muscular"
+    ]
+  },
+  {
+    title: "Clases Grupales",
+    description: "Disfruta de nuestras variadas clases grupales dirigidas por instructores certificados. Desde alta intensidad hasta relajación, tenemos opciones para todos los gustos y niveles.",
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    features: [
+      "Spinning",
+      "Zumba",
+      "Pilates",
+      "Yoga",
+      "Body Pump",
+      "HIIT"
+    ]
+  },
+  {
+    title: "Entrenamiento Personal",
+    description: "Nuestros entrenadores personales diseñarán un programa adaptado específicamente a tus objetivos y necesidades. Recibe atención individualizada y maximiza tus resultados.",
+    image: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+    features: [
+      "Evaluación física completa",
+      "Programa personalizado",
+      "Seguimiento nutricional",
+      "Ajustes periódicos según progreso"
+    ]
+  },
+  {
+    title: "Nutrición Deportiva",
+    description: "Complementa tu entrenamiento con asesoramiento nutricional profesional. Nuestros nutricionistas te ayudarán a optimizar tu alimentación para alcanzar tus objetivos fitness.",
+    image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    features: [
+      "Plan nutricional personalizado",
+      "Seguimiento mensual",
+      "Ajustes según objetivos",
+      "Educación nutricional"
+    ]
+  },
+  {
+    title: "Rehabilitación Física",
+    description: "Nuestro servicio de rehabilitación física te ayuda a recuperarte de lesiones y volver a tu rutina de entrenamiento de forma segura y efectiva.",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    features: [
+      "Evaluación de lesiones",
+      "Terapia física",
+      "Ejercicios correctivos",
+      "Seguimiento personalizado"
+    ]
+  }
+];
+---
+
+<Layout title="Servicios - POWERGYM">
+  <section class="py-20 bg-secondary text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-heading font-bold mb-6">Nuestros Servicios</h1>
+      <p class="text-xl max-w-3xl mx-auto">
+        En POWERGYM ofrecemos una amplia variedad de servicios diseñados para ayudarte a alcanzar tus objetivos fitness, sin importar tu nivel de experiencia.
+      </p>
+    </div>
+  </section>
+  
+  <section class="py-20 bg-light">
+    <div class="container mx-auto px-4">
+      <div class="space-y-20">
+        {services.map((service, index) => (
+          <div class={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 items-center`}>
+            <div class="w-full md:w-1/2">
+              <img src={service.image} alt={service.title} class="w-full h-96 object-cover rounded-lg shadow-lg" />
+            </div>
+            <div class="w-full md:w-1/2">
+              <h2 class="text-3xl font-heading font-bold mb-4">{service.title}</h2>
+              <p class="text-gray-600 mb-6">{service.description}</p>
+              <h3 class="text-xl font-bold mb-3">Características:</h3>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {service.features.map(feature => (
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-primary mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Horario de Clases</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Consulta nuestro horario semanal de clases grupales y reserva tu lugar.
+        </p>
+      </div>
+      
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+          <thead>
+            <tr class="bg-secondary text-white">
+              <th class="py-3 px-4 text-left">Hora</th>
+              <th class="py-3 px-4 text-center">Lunes</th>
+              <th class="py-3 px-4 text-center">Martes</th>
+              <th class="py-3 px-4 text-center">Miércoles</th>
+              <th class="py-3 px-4 text-center">Jueves</th>
+              <th class="py-3 px-4 text-center">Viernes</th>
+              <th class="py-3 px-4 text-center">Sábado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-200">
+              <td class="py-3 px-4 font-semibold">07:00</td>
+              <td class="py-3 px-4 text-center bg-primary/10">Spinning</td>
+              <td class="py-3 px-4 text-center bg-accent/10">HIIT</td>
+              <td class="py-3 px-4 text-center bg-primary/10">Spinning</td>
+              <td class="py-3 px-4 text-center bg-accent/10">HIIT</td>
+              <td class="py-3 px-4 text-center bg-primary/10">Spinning</td>
+              <td class="py-3 px-4 text-center bg-accent/10">Yoga</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="py-3 px-4 font-semibold">09:00</td>
+              <td class="py-3 px-4 text-center bg-accent/10">Pilates</td>
+              <td class="py-3 px-4 text-center bg-primary/10">Body Pump</td>
+              <td class="py-3 px-4 text-center bg-accent/10">Pilates</td>
+              <td class="py-3 px-4 text-center bg-primary/10">Body Pump</td>
+              <td class="py-3 px-4 text-center bg-accent/10">Pilates</td>
+              <td class="py-3 px-4 text-center bg-primary/10">Zumba</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="py-3 px-4 font-semibold">12:00</td>
+              <td class="py-3 px-4 text-center bg-primary/10">Zumba</td>
+              <td class="py-3 px-4 text-center bg-accent/10">Funcional</td>
+              <td class="py-3 px-4 text-center bg-primary/10">Zumba</td>
+              <td class="py-3 px-4 text-center bg-accent/10">Funcional</td>
+              <td class="py-3 px-4 text-center bg-primary/10">Zumba</td>
+              <td class="py-3 px-4 text-center">-</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="py-3 px-4 font-semibold">17:00</td>
+              <td class="py-3 px-4 text-center bg-accent/10">HIIT</td>
+              <td class="py-3 px-4 text-center bg-primary/10">Spinning</td>
+              <td class="py-3 px-4 text-center bg-accent/10">HIIT</td>
+              <td class="py-3 px-4 text-center bg-primary/10">Spinning</td>
+              <td class="py-3 px-4 text-center bg-accent/10">HIIT</td>
+              <td class="py-3 px-4 text-center">-</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="py-3 px-4 font-semibold">19:00</td>
+              <td class="py-3 px-4 text-center bg-primary/10">Body Pump</td>
+              <td class="py-3 px-4 text-center bg-accent/10">Yoga</td>
+              <td class="py-3 px-4 text-center bg-primary/10">Body Pump</td>
+              <td class="py-3 px-4 text-center bg-accent/10">Yoga</td>
+              <td class="py-3 px-4 text-center bg-primary/10">Body Pump</td>
+              <td class="py-3 px-4 text-center">-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="text-center mt-8">
+        <a href="/contacto" class="inline-block bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+          Reservar Clase
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <CallToAction />
+</Layout>

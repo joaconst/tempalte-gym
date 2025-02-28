@@ -1,0 +1,141 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Pricing from '../components/Pricing.astro';
+import CallToAction from '../components/CallToAction.astro';
+
+const additionalPlans = [
+  {
+    name: "Estudiante",
+    price: "24.99",
+    period: "mes",
+    features: [
+      "Acceso a sala de musculación",
+      "Horario completo",
+      "Evaluación física inicial",
+      "Acceso a vestuarios",
+      "Descuento con carnet de estudiante"
+    ],
+    cta: "Elegir Plan",
+    popular: false
+  },
+  {
+    name: "Senior",
+    price: "22.99",
+    period: "mes",
+    features: [
+      "Acceso a sala de musculación",
+      "Clases especiales para mayores de 60",
+      "Evaluación física mensual",
+      "Acceso a vestuarios",
+      "Asesoramiento nutricional"
+    ],
+    cta: "Elegir Plan",
+    popular: false
+  },
+  {
+    name: "Corporativo",
+    price: "Consultar",
+    period: "",
+    features: [
+      "Planes especiales para empresas",
+      "Descuentos por volumen",
+      "Clases privadas para grupos",
+      "Seguimiento personalizado",
+      "Eventos corporativos"
+    ],
+    cta: "Contactar",
+    popular: false
+  }
+];
+---
+
+<Layout title="Planes y Precios - POWERGYM">
+  <section class="py-20 bg-secondary text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-heading font-bold mb-6">Nuestros Planes y Precios</h1>
+      <p class="text-xl max-w-3xl mx-auto">
+        Encuentra el plan perfecto para ti y comienza tu transformación hoy mismo. Ofrecemos opciones flexibles para adaptarnos a tus necesidades.
+      </p>
+    </div>
+  </section>
+  
+  <Pricing />
+  
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Planes Especiales</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Además de nuestros planes regulares, ofrecemos opciones especiales para diferentes necesidades.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        {additionalPlans.map(plan => (
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-2">{plan.name}</h3>
+              <div class="mb-6">
+                <span class="text-4xl font-bold">${plan.price}</span>
+                <span class="text-gray-600">{plan.period && `/${plan.period}`}</span>
+              </div>
+              <ul class="mb-8 space-y-3">
+                {plan.features.map(feature => (
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-primary mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <a 
+                href="/contacto" 
+                class="block text-center py-3 px-6 rounded-lg font-bold transition-colors bg-gray-200 hover:bg-gray-300 text-gray-800"
+              >
+                {plan.cta}
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <section class="py-20 bg-light">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8">
+        <h2 class="text-2xl font-bold mb-6">Preguntas Frecuentes</h2>
+        
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-xl font-bold mb-2">¿Hay alguna cuota de inscripción?</h3>
+            <p class="text-gray-600">Sí, hay una cuota de inscripción única de $20 que cubre tu tarjeta de acceso y la evaluación física inicial.</p>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-bold mb-2">¿Puedo cancelar mi membresía en cualquier momento?</h3>
+            <p class="text-gray-600">Nuestros planes tienen un compromiso mínimo de 3 meses. Después de este período, puedes cancelar con un aviso de 15 días.</p>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-bold mb-2">¿Ofrecen descuentos para parejas?</h3>
+            <p class="text-gray-600">Sí, ofrecemos un 10% de descuento en el segundo plan cuando dos personas se inscriben juntas.</p>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-bold mb-2">¿Puedo congelar mi membresía?</h3>
+            <p class="text-gray-600">Sí, puedes congelar tu membresía hasta por 30 días al año sin costo adicional.</p>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-bold mb-2">¿Qué métodos de pago aceptan?</h3>
+            <p class="text-gray-600">Aceptamos tarjetas de crédito/débito, transferencias bancarias y efectivo para pagos en nuestras instalaciones.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <CallToAction />
+</Layout>

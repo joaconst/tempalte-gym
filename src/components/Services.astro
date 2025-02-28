@@ -1,0 +1,59 @@
+---
+const services = [
+  {
+    title: "Entrenamiento Funcional",
+    description: "Mejora tu condición física general con ejercicios que simulan movimientos cotidianos.",
+    icon: "dumbbell",
+    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+  },
+  {
+    title: "Musculación",
+    description: "Desarrolla tu fuerza y masa muscular con nuestro equipamiento de última generación.",
+    icon: "weight-hanging",
+    image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+  },
+  {
+    title: "Clases Grupales",
+    description: "Disfruta de nuestras clases de spinning, zumba, pilates, yoga y muchas más.",
+    icon: "users",
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+  },
+  {
+    title: "Entrenamiento Personal",
+    description: "Recibe atención personalizada de nuestros entrenadores certificados.",
+    icon: "user-check",
+    image: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+  }
+];
+---
+
+<section class="py-20 bg-light">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Nuestros Servicios</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Ofrecemos una amplia variedad de servicios para ayudarte a alcanzar tus objetivos fitness, sin importar tu nivel de experiencia.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {services.map(service => (
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
+          <div class="h-48 overflow-hidden">
+            <img src={service.image} alt={service.title} class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3">{service.title}</h3>
+            <p class="text-gray-600">{service.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="text-center mt-12">
+      <a href="/servicios" class="inline-block bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+        Ver todos los servicios
+      </a>
+    </div>
+  </div>
+</section>
